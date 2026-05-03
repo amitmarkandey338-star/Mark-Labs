@@ -4,9 +4,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Website to APK
-        uses: darkshredder/website-to-apk-action@v1.1.0
+      - uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          app-name: "Mark Labs"
-          build-folder-path: "."
+          node-version: '16'
+      - name: Build Web to APK
+        uses: kp-builds/website-to-apk@v1.1
+        with:
+          app_name: "Mark Labs"
+          website_url: "."
+          output_name: "MarkLabs.apk"
+          
