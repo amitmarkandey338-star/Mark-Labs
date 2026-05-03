@@ -5,14 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Install Node.js
-        uses: actions/setup-node@v3
+      - name: Build Android APK
+        uses: duckduckant/html-to-apk@v1.0
         with:
-          node-version: '16'
-      - name: Build Web to APK
-        uses: kp-builds/website-to-apk@v1.1
-        with:
-          app_name: "Mark Labs"
-          website_url: "."
-          output_name: "MarkLabs.apk"
+          app-name: "Mark Labs"
+          icon-path: "" # Leave empty if you don't have one
           
